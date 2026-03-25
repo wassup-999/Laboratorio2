@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b518fca5e486494448040676c5af55be, type: 3}
   m_Name: Skills 2
   m_EditorClassIdentifier: Assembly-CSharp::Skill
-  skillName: 
+  skillName: Stun
   skillDescription: 
-  cost: 4
-  cooldown: 5
-  damage: 1
+  cost: 5
+  cooldown: 8
+  damage: 7
   levelRestriction: 10
