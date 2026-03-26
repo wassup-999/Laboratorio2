@@ -12,9 +12,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         CheckName(Target);
-        CheckCost(Target);
-        //TryToLearnSkill(Target);
-        //TryToBuySkill(Target);
+        CheckCost(Target);        
     }
 
 
@@ -52,10 +50,11 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Cant learn right now , requieres el nivel : " + target.LevelRestriction);
+              
+            Debug.Log("Cant learn or buy right now , requieres el nivel and cost : " + target.LevelRestriction + " - " + target.Cost);
         }
     }
-    public void TryToBuySkill(Skill target)
+    /*public void TryToBuySkill(Skill target)
     {
         if(SkillManager.Instance.TryBuySkill(this, target, out Skill result))
         {
@@ -71,6 +70,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Cant buy right now , requieres el dinero : " + target.Cost);
         }
-    }
+    }*/
 
 }

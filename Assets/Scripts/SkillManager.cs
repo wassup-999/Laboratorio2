@@ -26,11 +26,10 @@ public class SkillManager : MonoBehaviour
     }
 
 
-    //public bool VerifyCondition<T>(Player sender , T target , Func< T , bool> )
-
+    
     public bool TryLearnSkill<T>(Player sender, T target, out T Result) where T : Skill //-> funcion generica / out retornar más de 1 cosa
     {
-        if (sender.Level >= target.LevelRestriction)
+        if (sender.Level >= target.LevelRestriction && sender.Money >= target.Cost)
         {
             Result = target;
             return true;
@@ -44,7 +43,7 @@ public class SkillManager : MonoBehaviour
         }
             
     }
-    public bool TryBuySkill<T>(Player sender, T target, out T Result) where T : Skill
+    /*public bool TryBuySkill<T>(Player sender, T target, out T Result) where T : Skill
     {
         if(sender.Money >= target.Cost)
         {
@@ -56,6 +55,6 @@ public class SkillManager : MonoBehaviour
             Result = default;
             return false;
         }
-    }
+    }*/
     
 }
