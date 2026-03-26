@@ -48,15 +48,17 @@ public class Player : MonoBehaviour
         }
     }
     public void TryToFindSkill()
-    {
-            if (SkillManager.Instance.TryFindSkill(Target.SkillName, out Skill result))
+    {         
+            Skill[] skillsArray = LearndSkills.ToArray();
+            if (SkillManager.Instance.TryFindSkill(skillsArray, skill => skill.SkillName == Target.SkillName, out Skill result))
             {
-                Debug.Log("Skill found: " + result.SkillName);
+                Debug.Log("Habilidad encontrada: " + result.SkillName);
             }
             else
             {
-                Debug.Log("Skill not found: " + Target.SkillName);
+                Debug.Log("Habilidad no encontrada");
             }
+
     }
     /*public void TryVerifyConditions(Skill Target)
     {
@@ -78,7 +80,17 @@ public class Player : MonoBehaviour
         if(Level >= 10)
         {
             Level = 10;           
-            Debug.Log("Player reached max level! Current level: " + Level );
+            Debug.Log("Player reached max level! " );
+        }
+    }
+    public void EarMoney()
+    {
+        Money++;
+        Debug.Log("Player ear money! Current money: " + Money);
+        if(Money>= 10)
+        {
+            Money = 10;
+            Debug.Log("Player reach max money!");
         }
     }
 
