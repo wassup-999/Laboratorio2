@@ -24,8 +24,20 @@ public class SkillManager : MonoBehaviour
     {
         Debug.Log(skill.Cost);
     }
+    /*public bool VerifyConditions<T>(Player sender,T target,Func<Player, T, bool> condition,out T result) where T : Skill
 
-
+    {
+        if (condition(sender, target))
+        {
+            result = target;
+            return true;
+        }
+        else
+        {
+            result = default;
+            return false;
+        }
+    }*/
     
     public bool TryLearnSkill<T>(Player sender, T target, out T Result) where T : Skill //-> funcion generica / out retornar más de 1 cosa
     {
@@ -42,19 +54,18 @@ public class SkillManager : MonoBehaviour
             return false;
         }
             
-    }
-    /*public bool TryBuySkill<T>(Player sender, T target, out T Result) where T : Skill
+    }    
+    public bool TryFindSkill<T>(string name, out T result) where T : Skill
     {
-        if(sender.Money >= target.Cost)
+        foreach (var skill in skillList)
         {
-            Result = target;
-            return true;
+            if (skill.SkillName == name)
+            {
+                result = skill as T;
+                return true;
+            }
         }
-        else
-        {
-            Result = default;
-            return false;
-        }
-    }*/
-    
+        result = default;
+        return false;
+    }
 }
