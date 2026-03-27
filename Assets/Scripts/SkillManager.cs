@@ -25,7 +25,6 @@ public class SkillManager : MonoBehaviour
         Debug.Log(skill.Cost);
     }
     public bool VerifyConditions<T>(Player sender,T target,Func<Player, T, bool> condition,out T result) where T : Skill
-
     {
         if (condition(sender, target))
         {
