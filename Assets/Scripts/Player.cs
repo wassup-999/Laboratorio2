@@ -60,18 +60,17 @@ public class Player : MonoBehaviour
             }
 
     }
-    /*public void TryVerifyConditions(Skill Target)
-    {
-        
-        if (SkillManager.Instance.VerifyConditions<bool>(this, Target))
-        {
-            Debug.Log("You can use this skill");
-        }
-        else
-        {
-            Debug.Log("You can't use this skill, check your level and money");
-        }
-    }*/
+    public void TryVerifyConditions(bool condition)
+    {   
+         if (SkillManager.Instance.VerifyConditions(this, Target, (sender, target) => condition, out Skill result))
+         {
+              Debug.Log("Condiciones verificadas para la habilidad: " + result.SkillName);
+         }
+         else
+         {
+              Debug.Log("No se cumplen las condiciones para la habilidad: " + Target.SkillName);
+         }
+    }
     
     public void LevelUpPlayer()
     {
