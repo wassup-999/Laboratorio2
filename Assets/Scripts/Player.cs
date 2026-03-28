@@ -3,11 +3,12 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 //hacer consultas skillManager
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour , IDamageable
 {
     public Skill Target;
     public int Level;
-    public int Money;    
+    public int Money;
+    public int Life;
     public List<Skill> LearndSkills;
     
     void Start()
@@ -15,9 +16,6 @@ public class Player : MonoBehaviour
         CheckNameAndCost(Target);       
         
     }
-
-
-
 
     public void CheckNameAndCost(Skill target)
     {
@@ -60,18 +58,20 @@ public class Player : MonoBehaviour
             }
 
     }
-    public void TryVerifyConditions(bool condition)
+    public void TryVerifyConditions()
     {   
-         if (SkillManager.Instance.VerifyConditions(this, Target, (sender, target) => condition, out Skill result))
+         if (SkillManager.Instance.VerifyConditions(this, Target, (sender, target) => target, out Skill result))
          {
-              Debug.Log("Condiciones verificadas para la habilidad: " + result.SkillName);
+            
+            Debug.Log("Condiciones verificadas para la habilidad: " + result.SkillName);
+                                      
          }
          else
          {
-              Debug.Log("No se cumplen las condiciones para la habilidad: " + Target.SkillName);
+            
+            Debug.Log("No se cumplen las condiciones para la habilidad: " + Target.SkillName);
          }
-    }
-    
+    }   
     public void LevelUpPlayer()
     {
         Level ++;
@@ -93,4 +93,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        damage = Random.Range(5, 15);
+        Life -= damage;
+        Debug.Log ("Recieve damage: " + damage + " " + "Current player life :" + Life);
+    }
 }

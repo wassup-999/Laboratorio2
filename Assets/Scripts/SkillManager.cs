@@ -5,6 +5,10 @@ using UnityEngine;
 //trabajar las consultas del player
 public class SkillManager : MonoBehaviour
 {
+    
+    public static SkillManager Instance;
+
+    [SerializeField] List<Skill> skillList;
     private void Awake()
     {
         if(Instance == null)
@@ -12,10 +16,6 @@ public class SkillManager : MonoBehaviour
         else 
             Destroy(gameObject);
     }
-    public static SkillManager Instance;
-
-    [SerializeField] List<Skill> skillList;
-
     public void NameOfSkill<T>(T skill) where T : Skill // funcion generica
     {
         Debug.Log(skill.SkillName);
@@ -26,7 +26,7 @@ public class SkillManager : MonoBehaviour
     }
     public bool VerifyConditions<T>(Player sender,T target,Func<Player, T, bool> condition,out T result) where T : Skill
     {
-        if (condition(sender, target))
+        if (condition(sender, target) && sender.Level >= target.LevelRestriction && sender.Money >= target.Cost)
         {
             result = target;
             return true;

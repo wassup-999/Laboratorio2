@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skills 2
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   skillName: Stun
-  skillDescription: 
+  skillDescription: Veo borroso chat >_<
   cost: 5
   cooldown: 8
   damage: 7

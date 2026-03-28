@@ -819,9 +819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea16543858f5bd4198833ba116a64ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  Target: {fileID: 11400000, guid: 1ceb082cc57b3404780afc1119aa313a, type: 2}
+  Target: {fileID: 11400000, guid: 5392591dab94ad24c9110f962a84a3b6, type: 2}
   Level: 0
   Money: 0
+  Life: 50
   LearndSkills: []
 --- !u!4 &420430601
 Transform:
@@ -1942,10 +1943,10 @@ MonoBehaviour:
       - m_Target: {fileID: 420430600}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: TryVerifyConditions
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1ceb082cc57b3404780afc1119aa313a, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Skill, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2214,7 +2215,7 @@ MonoBehaviour:
         m_MethodName: TryToLearnSkill
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 1ceb082cc57b3404780afc1119aa313a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 5392591dab94ad24c9110f962a84a3b6, type: 2}
           m_ObjectArgumentAssemblyTypeName: Skill, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2345,10 +2346,10 @@ MonoBehaviour:
       - m_Target: {fileID: 420430600}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: TryToFindSkill
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Skill, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

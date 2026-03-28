@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skills 1
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   skillName: Poison
-  skillDescription: peligroso
+  skillDescription: '''Ta fuerte este item :0'
   cost: 5
   cooldown: 5
   damage: 3
