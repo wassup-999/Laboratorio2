@@ -16,12 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         int playerLife = GameUtils.Transform<Player, int>(player, z => z.Life);
-        
-
-        TestTakeDamage<Player>(player, Random.Range(5,15));
-
-        
-        
+        TestTakeDamage<Player>(player, Random.Range(5,15));      
     }
 
     
@@ -31,7 +26,9 @@ public class GameManager : MonoBehaviour
     }
     public void TestTakeDamage<T>(T damageable, int damage) where T : IDamageable
     {
-        damageable.TakeDamage(damage);       
+        damageable.TakeDamage(damage);
+        int simpleReturn = SkillDescription(out _);
+        //Debug.Log(simpleReturn);
     }
     public void BtnSelectSkill(Skill skill)
     {
@@ -39,8 +36,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(skill.SkillName);
         
         int simpleReturn1 = SkillDescription(out string skillDescription);
-        Debug.Log(skillDescription);
-        int simpleReturn = SkillDescription(out _);
+        Debug.Log(skillDescription);      
     }
 
     public int SkillDescription(out string skillDescription)

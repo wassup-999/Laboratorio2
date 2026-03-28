@@ -45,14 +45,12 @@ public class SkillManager : MonoBehaviour
             Result = target;
             return true;
 
-        }
-        
+        }       
         else
         {
             Result = default;
             return false;
-        }
-            
+        }            
     }    
     public bool TryFindSkill<T>(T[] arraynames, Func<T ,bool> condition, out T result)
     {
